@@ -1,0 +1,17 @@
+{
+  "forms": {
+    "contact": {
+      "name": "contact",
+      "fields": {
+        "name": { "type": "text", "required": true, "min": 3, "max": 50 },
+        "email": { "type": "email", "required": true, "max": 50 },
+        "message": {
+          "type": "text",
+          "required": true,
+          "min": 10,
+          "max": 1000
+        }
+      }
+    }
+  }
+}

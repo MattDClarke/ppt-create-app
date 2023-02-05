@@ -1,0 +1,9 @@
+extends email-layout
+
+block content
+  h2 Email Confirm
+  p Hello. You have requested to register (or change your email address for) a ppt Create account (#{websiteURL}). Please click the following button to continue with confirming your email address. Please note this link is only valid for the next hour.
+  +button(resetURL, 'Confirm my Email →')
+  p If you can't click the above button please visit #{resetURL}
+  br
+  p If you didn't request this email, please ignore it.

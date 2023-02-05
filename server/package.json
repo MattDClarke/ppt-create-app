@@ -1,0 +1,67 @@
+{
+  "name": "ppt-create-backend",
+  "version": "1.0.0",
+  "description": "backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./start.js",
+    "dev": "nodemon ./start.js",
+    "loadsamples": "node ./testData/loadSampleData.js",
+    "blowitallaway": "node ./testData/loadSampleData.js --delete"
+  },
+  "eslintConfig": {
+    "extends": [
+      "wesbos"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/translate": "^6.3.0",
+    "@sendgrid/mail": "^7.4.5",
+    "cloudinary": "^1.27.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.4.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-mongo-sanitize": "^2.1.0",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.12.0",
+    "helmet": "^4.6.0",
+    "html-to-text": "^8.0.0",
+    "jimp": "^0.16.1",
+    "juice": "^8.0.0",
+    "mongoose": "^6.2.1",
+    "mongoose-mongodb-errors": "0.0.2",
+    "multer": "^1.4.3",
+    "node-fetch": "^2.6.1",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "pug": "^3.0.2",
+    "rate-limiter-flexible": "^2.2.3",
+    "redis": "^3.1.2",
+    "unsplash-js": "^7.0.15",
+    "validator": "^13.6.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-wesbos": "^1.0.1",
+    "eslint-plugin-html": "^6.1.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "faker": "^5.5.3",
+    "nodemon": "^2.0.9",
+    "prettier": "^2.1.1"
+  }
+}
