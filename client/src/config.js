@@ -1,5 +1,6 @@
+const environment = 'production'
 export const backendEndpoint = `${
-  process.env.NODE_ENV === 'production'
-    ? process.env.BACKEND_URL
+  environment === 'production'
+    ? 'https://ppt-create-server.onrender.com'
     : 'http://localhost:7777'
 }`;
