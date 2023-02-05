@@ -66,7 +66,9 @@ if (process.env.NODE_ENV === 'production') {
 app.use(
   cors({
     origin: `${
-      process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : ''
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3000'
+        : process.env.BACKEND_URL
     }`, // location of React app
     credentials: true,
   })

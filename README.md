@@ -17,6 +17,7 @@
 
 ### Backend
 
+- cd into `server`
 - `npm run dev`
 
 #### Sample Data and deleting data - users
