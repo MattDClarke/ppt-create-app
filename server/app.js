@@ -83,7 +83,7 @@ app.use(
     cookie: {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
+      sameSite: 'none',
       maxAge: 1000 * 60 * 60 * 24 * 90, // 3 months
     },
     store: MongoStore.create({
@@ -109,7 +109,7 @@ app.use(
     cookie: {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
+      sameSite: 'none',
     },
   })
 );
@@ -118,7 +118,7 @@ app.use(
 app.use(function (req, res, next) {
   res.cookie('XSRF-TOKEN', req.csrfToken(), {
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
+    sameSite: 'none',
   });
   next();
 });
@@ -141,25 +141,17 @@ global.fetch = fetch;
 
 app.use(mongoSanitize());
 
-// http - https redirect for Heroku
-// if (process.env.NODE_ENV === 'production') {
-//   app.use((req, res, next) => {
-//     if (req.header('x-forwarded-proto') !== 'https')
-//       res.redirect(`https://${req.header('host')}${req.url}`);
-//     else next();
-//   });
-// }
+// http - https redirect
+if (process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https')
+      res.redirect(`https://${req.header('host')}${req.url}`);
+    else next();
+  });
+}
 
 //  Handle routes
 app.use('/', routes);
-// for adding React build folder
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '/client/build')));
-  // needed for React router - for any unknown path serve index.html
-  app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-  });
-}
 
 // If that above routes didnt work, we 404 them and forward to error handler
 app.use(errorHandlers.notFound);
