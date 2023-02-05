@@ -58,7 +58,7 @@ app.use(express.urlencoded({ extended: true }));
 // This keeps users logged in and allows us to send flash messages
 // store data about users -> how long logged in...
 
-// Needed for Heroku - else CSRF error: Form tampered with
+// Needed for deployment - else CSRF error: Form tampered with
 if (process.env.NODE_ENV === 'production') {
   app.set('trust proxy', 1);
 }
@@ -109,7 +109,7 @@ app.use(
     cookie: {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: process.env.NODE_ENV === 'production' ? true : 'lax',
+      sameSite: 'lax',
     },
   })
 );
