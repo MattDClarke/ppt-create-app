@@ -118,7 +118,7 @@ app.use(
 app.use(function (req, res, next) {
   res.cookie('XSRF-TOKEN', req.csrfToken(), {
     secure: process.env.NODE_ENV === 'production',
-    sameSite: process.env.NODE_ENV === 'production' ? true : 'lax',
+    sameSite: 'lax',
   });
   next();
 });
