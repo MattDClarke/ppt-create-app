@@ -59,9 +59,9 @@ app.use(express.urlencoded({ extended: true }));
 // store data about users -> how long logged in...
 
 // Needed for Heroku - else CSRF error: Form tampered with
-// if (process.env.NODE_ENV === 'production') {
-//   app.set('trust proxy', 1);
-// }
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1);
+}
 
 app.use(
   cors({
