@@ -1,4 +1,4 @@
-# PPT Create front end and backend
+# PPT Create front end and back end
 
 - make word lists
 - select images for word lists (Unsplash for now)
